@@ -25,10 +25,25 @@ class CatsController extends Controller
         $cat->name = $request->input('name');
         $cat->description = $request->input('description');
         $cat->save();
-        
+
         $cats = \App\Cat::all();
         return view ('cats.index', ['cats' =>$cats]);
        //return redirect('/cats');
     }
+
+    public function edit($id)
+    {
+        $cat = \App\cat::find($id);
+        return view('cats.edit', compact('cat'));
+    }
+
+    public function update()
+    {
+
+    }
+
+
+
+
 }
 
